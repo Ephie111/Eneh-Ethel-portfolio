@@ -37,8 +37,6 @@
 
         <button class="nav-button" data-target="contact">Let's Talk</button>
 
-        <button class="mobile-menu-button" id="mobileMenuButton">
-          <i class="fas fa-bars"></i>
         </button>
       </div>
     </div>
@@ -253,21 +251,29 @@
       </div>
 
       <div class="contact-form">
-        <form id="contactForm" name="contact" method="POST" data-netlify="true">
+        <form id="contactForm" name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true" onSubmit="submit"
+        netlify-honeypot="bot-field">
+         <p class="hidden">
+          <label>
+            Don’t fill this out if you’re human: <input name="bot-field" type="text" />
+          </label>
+        </p>
           <div class="form-group">
             <label for="name">Your Name</label>
-            <input type="text" id="name" class="form-control" placeholder="Eneh Oma" required />
+            <input type="text" id="name" class="form-control" name="name" placeholder="Eneh Oma" required />
           </div>
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" class="form-control" placeholder="oma@example.com" required />
+            <input type="email" id="email" class="form-control" name="email" placeholder="oma@example.com" required />
           </div>
           <div class="form-group">
             <label for="subject">Subject</label>
             <input
-              type="text"
+              type="hidden"
               id="subject"
               class="form-control"
+              name="subject"
+              value="New Portfolio Message from %{name}"
               placeholder="Project Collaboration"
               required
             />
@@ -277,10 +283,12 @@
             <textarea
               id="message"
               class="form-control"
+              name="message"
               placeholder="Hello, I would like to discuss..."
               required
             ></textarea>
           </div>
+          <div data-netlify-recaptcha="true"></div>
           <button type="submit" class="submit-btn">Send Message</button>
         </form>
       </div>
@@ -341,27 +349,6 @@
         }
       });
     });
-
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  const submitBtn = this.querySelector('.submit-btn');
-  const originalText = submitBtn.textContent;
-  submitBtn.textContent = 'Sending...';
-  submitBtn.disabled = true;
-  
-  setTimeout(() => {
-    submitBtn.textContent = originalText;
-    submitBtn.disabled = false;
-  }, 3000);
-});
-
-    // Mobile menu toggle
-    document
-      .getElementById("mobileMenuButton")
-      .addEventListener("click", function () {
-        alert(
-          "Mobile menu would open here. In a real implementation, this would toggle a menu."
-        );
-      });
   </script>
 </body>
 </html>
