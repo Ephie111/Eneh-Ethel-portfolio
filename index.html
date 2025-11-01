@@ -5,15 +5,328 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eneh Ethel | Portfolio</title>
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/navigation.css" />
-  <link rel="stylesheet" href="css/hero.css" />
-  <link rel="stylesheet" href="css/about.css" />
-  <link rel="stylesheet" href="css/skill.css" />
-  <link rel="stylesheet" href="css/projects.css" />
-  <link rel="stylesheet" href="css/contact.css" />
-  <link rel="stylesheet" href="css/footer.css" />
+  <!-- Stylesheets - Using inline CSS since external files aren't provided -->
+  <style>
+    /* Basic reset and styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .section {
+      padding: 80px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: #2d3748;
+    }
+
+    /* Navigation Styles */
+    #navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4f46e5;
+    }
+
+    .logo-icon {
+      margin-right: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-link, .nav-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      color: #4a5568;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover, .nav-button:hover {
+      color: #4f46e5;
+    }
+
+    .nav-button {
+      background: #4f46e5;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 6px;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #4f46e5;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    /* Contact Form Styles */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-info {
+      padding: 50px;
+      background: linear-gradient(135deg, #4f46e5 0%, #7c73e6 100%);
+      color: white;
+    }
+
+    .contact-info h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .contact-icon {
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-form {
+      padding: 50px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #374151;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #4f46e5;
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background: #4f46e5;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      background: #4338ca;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .success-message {
+      display: none;
+      background-color: #d1fae5;
+      color: #065f46;
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .subject-preview {
+      background-color: #f3f4f6;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-top: 5px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .subject-preview strong {
+      color: #4f46e5;
+    }
+
+    /* Footer */
+    footer {
+      background: #1f2937;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .social-link {
+      color: white;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-link:hover {
+      color: #4f46e5;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .nav-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .nav-links {
+        gap: 1rem;
+      }
+      
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/d8bb3ea651.js" crossorigin="anonymous"></script>
@@ -36,8 +349,6 @@
         </div>
 
         <button class="nav-button" data-target="contact">Let's Talk</button>
-
-        </button>
       </div>
     </div>
   </nav>
@@ -62,9 +373,9 @@
   </section>
 
   <!-- About Section -->
-  <section class="about" id="about">
+  <section class="section" id="about">
+    <h2 class="section-title">About Me</h2>
     <div class="about-container">
-      <h2 class="about-title">About Me</h2>
       <div class="about-content">
         <div class="about-image-container">
           <div class="about-card">
@@ -251,29 +562,40 @@
       </div>
 
       <div class="contact-form">
-        <form id="contactForm" name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true" onSubmit="submit" netlify-honeypot="bot-field">
-         <input type="hidden" name="_template" value="netlify-email-template.html"> 
-         <p class="hidden">
-          <label>
-            Don’t fill this out if you’re human: <input name="bot-field" type="text" />
-          </label>
-        </p>
+        <form id="contactForm" name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="_template"> 
+          <p class="hidden">
+            <label>
+              Don't fill this out if you're human: <input name="bot-field" type="text" />
+            </label>
+          </p>
+          
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" class="form-control" name="name" placeholder="Eneh Oma" required />
           </div>
+          
           <div class="form-group">
             <label for="email">Email Address</label>
             <input type="email" id="email" class="form-control" name="email" placeholder="oma@example.com" required />
           </div>
+          
           <div class="form-group">
             <label for="subject">Subject</label>
             <input
-              type="hidden"
-              name="_subject"
-              value="New Portfolio Message from {name}"           
+              type="text"
+              id="subject"
+              class="form-control"
+              name="subject"
+              value="New Portfolio Message from "
+              required
+              readonly
             />
+            <div class="subject-preview">
+              Subject preview: <strong id="subjectPreview">New Portfolio Message from </strong>
+            </div>
           </div>
+          
           <div class="form-group">
             <label for="message">Message</label>
             <textarea
@@ -288,12 +610,11 @@
           <div data-netlify-recaptcha="true"></div>
 
           <button type="submit" class="submit-btn">Send Message</button>
-
         </form>
 
-         <div id="successMessage" class="success-message">
-            Thank you for your message! I'll get back to you soon.
-          </div>
+        <div id="successMessage" class="success-message">
+          Thank you for your message! I'll get back to you soon.
+        </div>
       </div>
     </div>
   </section>
@@ -350,6 +671,41 @@
             behavior: "smooth",
           });
         }
+      });
+    });
+
+    // Form subject logic
+    document.addEventListener('DOMContentLoaded', function() {
+      const nameInput = document.getElementById('name');
+      const subjectInput = document.getElementById('subject');
+      const subjectPreview = document.getElementById('subjectPreview');
+      
+      // Update subject when name changes
+      nameInput.addEventListener('input', function() {
+        const name = this.value.trim();
+        const subject = name ? `New Portfolio Message from ${name}` : 'New Portfolio Message from ';
+        subjectInput.value = subject;
+        subjectPreview.textContent = subject;
+      });
+      
+      // Form submission handler
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show success message
+        document.getElementById('successMessage').style.display = 'block';
+        
+        // Reset the form
+        this.reset();
+        
+        // Reset subject to default
+        subjectInput.value = 'New Portfolio Message from ';
+        subjectPreview.textContent = 'New Portfolio Message from ';
+        
+        // Hide success message after 5 seconds
+        setTimeout(function() {
+          document.getElementById('successMessage').style.display = 'none';
+        }, 5000);
       });
     });
   </script>
