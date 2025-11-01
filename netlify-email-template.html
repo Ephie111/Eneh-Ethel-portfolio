@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Basic inline CSS for email compatibility */
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .header { background-color: #4f46e5; color: white; padding: 20px; border-top-left-radius: 8px; border-top-right-radius: 8px; }
+        .content { padding: 20px; line-height: 1.6; }
+        .data { border: 1px solid #ddd; padding: 15px; background-color: #f9f9f9; margin-top: 10px; margin-bottom: 20px; white-space: pre-wrap; }
+        .detail-item { margin-bottom: 10px; }
+        .detail-item strong { display: inline-block; width: 80px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>New Portfolio Message Received!</h2>
+        </div>
+        <div class="content">
+            <p>You have received a new message from **{{ name }}** via your contact form.</p>
+            
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            
+            <h3>Details:</h3>
+            <div class="detail-item"><strong>Name:</strong> {{ name }}</div>
+            <div class="detail-item"><strong>Email:</strong> {{ email }}</div>
+            <div class="detail-item"><strong>Subject:</strong> {{ _subject }}</div>
+            
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+            <h3>Message:</h3>
+            <div class="data">
+                {{ message }}
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 12px; color: #777;">
+                This message was successfully processed by Netlify Forms.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

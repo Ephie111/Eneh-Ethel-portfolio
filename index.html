@@ -251,15 +251,15 @@
       </div>
 
       <div class="contact-form">
-        <form id="contactForm" name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true" onSubmit="submit"
-        netlify-honeypot="bot-field">
+        <form id="contactForm" name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true" onSubmit="submit" netlify-honeypot="bot-field">
+         <input type="hidden" name="_template" value="netlify-email-template.html"> 
          <p class="hidden">
           <label>
             Don’t fill this out if you’re human: <input name="bot-field" type="text" />
           </label>
         </p>
           <div class="form-group">
-            <label for="name">Your Name</label>
+            <label for="name">Name</label>
             <input type="text" id="name" class="form-control" name="name" placeholder="Eneh Oma" required />
           </div>
           <div class="form-group">
@@ -270,16 +270,12 @@
             <label for="subject">Subject</label>
             <input
               type="hidden"
-              id="subject"
-              class="form-control"
-              name="subject"
-              value="New Portfolio Message from %{name}"
-              placeholder="Project Collaboration"
-              required
+              name="_subject"
+              value="New Portfolio Message from {name}"           
             />
           </div>
           <div class="form-group">
-            <label for="message">Your Message</label>
+            <label for="message">Message</label>
             <textarea
               id="message"
               class="form-control"
@@ -288,9 +284,16 @@
               required
             ></textarea>
           </div>
+
           <div data-netlify-recaptcha="true"></div>
+
           <button type="submit" class="submit-btn">Send Message</button>
+
         </form>
+
+         <div id="successMessage" class="success-message">
+            Thank you for your message! I'll get back to you soon.
+          </div>
       </div>
     </div>
   </section>
