@@ -24,8 +24,7 @@
     <div class="container">
       <div class="nav-content">
         <div class="logo">
-          <i class="fas fa-code logo-icon"></i>
-          Eneh Ethel
+          <img src="images/omarnel.jpg" alt="logo" class="logo-image" />
         </div>
 
         <div class="nav-links">
@@ -224,7 +223,7 @@
             </div>
             <div>
               <p>Email</p>
-              <p>enehsteph31@gmail.com</p>
+              <p><a href="mailto:enehsteph31@gmail.com" class="contact-link">enehsteph31@gmail.com</a></p>
             </div>
           </div>
 
@@ -234,7 +233,7 @@
             </div>
             <div>
               <p>Phone</p>
-              <p>+234 (706) 217-7111</p>
+              <p><a href="tel:+2347062177111" class="contact-link">+234 (706) 217-7111</a></p>
             </div>
           </div>
 
@@ -252,12 +251,6 @@
 
       <div class="contact-form">
         <form id="contactForm" name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true" onSubmit="submit" netlify-honeypot="bot-field">
-         <input type="hidden" name="_template"> 
-         <p class="hidden">
-          <label>
-            Don’t fill this out if you’re human: <input name="bot-field" type="text" />
-          </label>
-        </p>
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" class="form-control" name="name" placeholder="Eneh Oma" required />
@@ -270,8 +263,9 @@
             <label for="subject">Subject</label>
             <input
               type="text"
-              name="subject"
-              value="New Portfolio Message from {name}"  
+              id="subject"
+              name="subject"  
+              class="form-control"
               placeholder="Project Collaboration" required         
             />
           </div>
@@ -292,9 +286,6 @@
 
         </form>
 
-          <div id="successMessage" class="success-message">
-            Thank you for your message! I'll get back to you soon.
-          </div>
       </div>
     </div>
   </section>
@@ -351,41 +342,6 @@
             behavior: "smooth",
           });
         }
-      });
-    });
-
-    // Form subject logic
-    document.addEventListener('DOMContentLoaded', function() {
-      const nameInput = document.getElementById('name');
-      const subjectInput = document.getElementById('subject');
-      const subjectPreview = document.getElementById('subjectPreview');
-      
-      // Update subject when name changes
-      nameInput.addEventListener('input', function() {
-        const name = this.value.trim();
-        const subject = name ? `New Portfolio Message from ${name}` : 'New Portfolio Message from ';
-        subjectInput.value = subject;
-        subjectPreview.textContent = subject;
-      });
-      
-      // Form submission handler
-      document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Show success message
-        document.getElementById('successMessage').style.display = 'block';
-        
-        // Reset the form
-        this.reset();
-        
-        // Reset subject to default
-        subjectInput.value = 'New Portfolio Message from ';
-        subjectPreview.textContent = 'New Portfolio Message from ';
-        
-        // Hide success message after 5 seconds
-        setTimeout(function() {
-          document.getElementById('successMessage').style.display = 'none';
-        }, 5000);
       });
     });
   </script>

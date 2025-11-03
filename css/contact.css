@@ -36,6 +36,15 @@
             gap: 15px;
         }
 
+        .contact-detail p a.contact-link {
+            color: inherit; /* Inherit the text color from the parent element */
+            text-decoration: none; /* Remove the underline */
+        }
+
+        .contact-detail p a.contact-link:hover {
+            text-decoration: underline;
+        }
+
         .contact-icon {
             font-size: 20px;
             width: 40px;

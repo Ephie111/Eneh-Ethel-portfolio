@@ -26,18 +26,23 @@ nav.scrolled {
 }
 
 .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: #171717;
-    display: flex;
+    display: flex; 
     align-items: center;
-    gap: 10px;
+    gap: 10px; 
 }
 
-.logo-icon {
-    color: #4f46e5;
+.logo-image {
+    height: 60px;
+    width: 60px; 
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
 }
+
+ .logo-image:hover {
+    transform: scale(1.01);
+}
+
 
 .nav-links {
     display: flex;
